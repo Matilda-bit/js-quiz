@@ -145,9 +145,27 @@ header h1 {
   gap: 0.5rem;
 }
 
+.jscode {
+  width: auto;
+  background-color: #fff;
+  color: #000;
+  padding: 8px 12px;
+  border-left: 4px solid #4CAF50;
+  word-wrap: break-word;
+  margin-top: 16px !important;
+  margin-bottom: 16px !important;
+  font-family: Consolas, Menlo, "courier new", monospace;
+  white-space: pre-wrap; /* Preserves whitespace and line breaks */
+  text-align: left; 
+}
+
 .answer {
   width: 90%;
   margin: 0 auto;
+}
+.answer button > span {
+  display: block;
+  text-align: left; 
 }
 
 .answer button {
