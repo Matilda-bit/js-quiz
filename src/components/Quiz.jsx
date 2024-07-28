@@ -34,7 +34,8 @@ export default function Quiz() {
     <div id="quiz">
       <div id="question">
         <QuestionTimer
-          timeout={10000}
+          key={activeQuestionIndex}
+          timeout={20000}
           onTimeout={handleSkipAnswer}
         />
         <h2>{QUESTIONS[activeQuestionIndex].text}</h2>
