@@ -15,6 +15,8 @@ export default function Question({
   });
 
   function handleSelectAnswer(answer) {
+    const correctAns = QUESTIONS[index].answers[QUESTIONS[index].correctAnswer].label ? QUESTIONS[index].answers[QUESTIONS[index].correctAnswer].label : QUESTIONS[index].answers[QUESTIONS[index].correctAnswer];
+    const ans = answer.label ? answer.label : answer;
     setAnswer({
       selectedAnswer: answer,
       isCorrect: null
@@ -23,7 +25,7 @@ export default function Question({
     setTimeout(() => {
       setAnswer({
         selectedAnswer: answer,
-        isCorrect: QUESTIONS[index].answers[0] === answer
+        isCorrect: correctAns === ans
       })
 
       setTimeout(() => {
