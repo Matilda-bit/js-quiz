@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import QuestionTimer from './QuestionTimer.jsx';
 import Answers from './Answers.jsx';
-import QUESTIONS from '../questions.js';
+import QUESTIONS from '../util/questions.js';
 
 export default function Question({
   index,
@@ -47,8 +47,8 @@ export default function Question({
         onTimeout={onSkipAnswer} 
         />
       <h2>{QUESTIONS[index].text}</h2>
-      {QUESTIONS[activeQuestionIndex].code && 
-        <pre className="jscode">{QUESTIONS[activeQuestionIndex].code}</pre>}
+      {QUESTIONS[index].code && 
+        <pre className="jscode">{QUESTIONS[index].code}</pre>}
       <Answers
         answers={QUESTIONS[index].answers}
         selectedAnswer={answer.selectedAnswer}
