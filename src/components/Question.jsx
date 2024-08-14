@@ -14,25 +14,57 @@ export default function Question({
     isCorrect: null
   });
 
+  let timer = 20000;
+
+  if(answer.selectedAnswer) {
+    timer = 1000;
+  }
+
+  if (answer.isCorrect !== null) {
+    timer = 2000;
+  }
+
   function handleSelectAnswer(answer) {
-    const correctAns = QUESTIONS[index].answers[QUESTIONS[index].correctAnswer].label ? QUESTIONS[index].answers[QUESTIONS[index].correctAnswer].label : QUESTIONS[index].answers[QUESTIONS[index].correctAnswer];
-    const ans = answer.label ? answer.label : answer;
+    const correctAnswer = QUESTIONS[index].correctAnswer;
+
+    let isCorrect;
+    let correctAns;
+    let ans;
+
+    // Check if correctAnswer is an array
+    if (Array.isArray(correctAnswer)) {
+        console.log(correctAnswer);
+        console.log(answer);
+
+        // Check if the selected answer is in the array of correct answers
+        isCorrect = correctAnswer.some(ca => {
+            correctAns = QUESTIONS[index].answers[ca].label ? QUESTIONS[index].answers[ca].label : QUESTIONS[index].answers[ca];
+            ans = answer.label ? answer.label : answer;
+            return ans === correctAns;
+        });
+    } else {
+        correctAns = QUESTIONS[index].answers[correctAnswer].label ? QUESTIONS[index].answers[correctAnswer].label : QUESTIONS[index].answers[correctAnswer];
+        ans = answer.label ? answer.label : answer;
+        isCorrect = correctAns === ans;
+    }
+
     setAnswer({
-      selectedAnswer: answer,
-      isCorrect: null
-    })
+        selectedAnswer: answer,
+        isCorrect: isCorrect
+    });
 
     setTimeout(() => {
-      setAnswer({
-        selectedAnswer: answer,
-        isCorrect: correctAns === ans
-      })
+        setAnswer({
+            selectedAnswer: answer,
+            isCorrect: isCorrect // Use the isCorrect value calculated earlier
+        });
 
-      setTimeout(() => {
-        onSelectAnswer(answer);
-      }, 2000);
+        setTimeout(() => {
+            onSelectAnswer(answer);
+        }, 2000);
     }, 1000);
-  }
+}
+
 
   let answerState = '';
 
@@ -45,8 +77,10 @@ export default function Question({
   return (
     <div id="question">
       <QuestionTimer 
-        timeout={20000} 
-        onTimeout={onSkipAnswer} 
+        key={timer}
+        timeout={timer} 
+        onTimeout={answer.selectedAnswer === '' ? onSkipAnswer : null} 
+        mode={answerState}
         />
       <h2>{QUESTIONS[index].text}</h2>
       {QUESTIONS[index].code && 
