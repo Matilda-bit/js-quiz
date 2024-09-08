@@ -2,10 +2,20 @@ import quizCompleteImg from '../assets/quiz-complete.png';
 import QUESTIONS from '../util/questions.js';
 
 export default function Summary({ userAnswers }) {
+  console.log(userAnswers);
   const skippedAnswers = userAnswers.filter((answer) => answer === null);
   const correctAnswers = userAnswers.filter(
-    (answer, index) => answer === QUESTIONS[index].answers[0]
+    
+    (answer, index) => { 
+      //polina
+      console.log("answer");
+      console.log(answer);
+      console.log(index);
+      console.log(QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]);
+      return answer === QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]}
   );
+
+  console.log(correctAnswers);
 
   const skippedAnswersShare = Math.round(
     (skippedAnswers.length / userAnswers.length) * 100
@@ -39,7 +49,7 @@ export default function Summary({ userAnswers }) {
 
           if (answer === null) {
             cssClass += ' skipped';
-          } else if (answer === QUESTIONS[index].answers[0]) {
+          } else if (answer === QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]) {
             cssClass += ' correct';
           } else {
             cssClass += ' wrong';

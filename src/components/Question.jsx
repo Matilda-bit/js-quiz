@@ -14,7 +14,7 @@ export default function Question({
     isCorrect: null
   });
 
-  let timer = 20000;
+  let timer = 2000;//20000 polina
 
   if(answer.selectedAnswer) {
     timer = 1000;
