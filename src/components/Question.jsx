@@ -33,9 +33,6 @@ export default function Question({
 
     // Check if correctAnswer is an array
     if (Array.isArray(correctAnswer)) {
-        // console.log(correctAnswer);
-        // console.log(answer);
-
         // Check if the selected answer is in the array of correct answers
         isCorrect = correctAnswer.some(ca => {
             correctAns = QUESTIONS[index].answers[ca].label ? QUESTIONS[index].answers[ca].label : QUESTIONS[index].answers[ca];

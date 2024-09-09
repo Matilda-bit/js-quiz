@@ -8,38 +8,58 @@ export default function Summary({ userAnswers }) {
     
     (answer, index) => { 
       //polina
-      const correctIndex = QUESTIONS[index].correctAnswer; //always return index of correct answer
+      const correctIndex = QUESTIONS[index].correctAnswer; //always return index of correct answer - can be an array
       if(Array.isArray(correctIndex)) {
         console.log("correctIndex it is an array");
         console.log(correctIndex);
         console.log("index" + index);
       }
-      
-      //let ans;
-      console.log("index of answer:");
-      // console.log(answer);
-      console.log(index);
-      //correctAns = QUESTIONS[index].answers[correctIndex].label ? QUESTIONS[index].answers[correctAnswer].label : QUESTIONS[index].answers[correctAnswer];
+
+
+        let ans;
+        let isCorrect;
+        let correctAns;
+      // Check if correctAnswer is an array
+        if (Array.isArray(correctIndex)) {
+          // Check if the selected answer is in the array of correct answers
+          isCorrect = correctIndex.some(ca => {
+              correctAns = QUESTIONS[index].answers[ca].label ? QUESTIONS[index].answers[ca].label : QUESTIONS[index].answers[ca];
+              ans = answer.label ? answer.label : answer;
+              return ans === correctAns;
+          });
+      } else if (answer !== null) {
+          correctAns = QUESTIONS[index].answers[correctIndex].label ? QUESTIONS[index].answers[correctIndex].label : QUESTIONS[index].answers[correctIndex];
+          ans = answer.label ? answer.label : answer;
+          isCorrect = correctAns === ans;
+      }
+
+  
+      // console.log("index of answer:");
+      // // console.log(answer);
+      // console.log(index);
+      // //correctAns = QUESTIONS[index].answers[correctIndex].label ? QUESTIONS[index].answers[correctAnswer].label : QUESTIONS[index].answers[correctAnswer];
         
-      //console.log(QUESTIONS[index].answers[correctIndex]);
-      if (Array.isArray(answer)) {
-        console.log("aswer this is an array!");
-      }
+      // //console.log(QUESTIONS[index].answers[correctIndex]);
+      // if (Array.isArray(answer)) {
+      //   console.log("aswer this is an array!");
+      // }
 
 
-      if(answer === null){
+      // if(answer === null){
 
-      }
-      else if (typeof answer === "object" && answer !== null) {
-        console.log("answer this is an object!");
-        console.log(JSON.stringify(answer));
-        console.log("try to compere with");
-        console.log(QUESTIONS[index].answers[correctIndex]);
-        console.log(answer === QUESTIONS[index].answers[correctIndex]);
+      // }
+      // else if (typeof answer === "object" && answer !== null) {
+      //   console.log("answer this is an object!");
+      //   console.log(JSON.stringify(answer));
+      //   console.log("try to compere with");
+      //   console.log(QUESTIONS[index].answers[correctIndex]);
+      //   console.log(answer === QUESTIONS[index].answers[correctIndex]);
 
-      }
+      // }
+
+      return isCorrect;
       
-      return answer === QUESTIONS[index].answers[correctIndex];
+      //return answer === QUESTIONS[index].answers[correctIndex];
       
     }
   );
@@ -84,6 +104,7 @@ export default function Summary({ userAnswers }) {
           } else if (typeof answer === "object") {
             console.log(answer.label);
             console.log(answer.code);
+            if()
             //cssClass += ' correct';
 
           } else if (answer.label) {
