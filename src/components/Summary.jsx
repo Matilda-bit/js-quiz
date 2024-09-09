@@ -8,14 +8,44 @@ export default function Summary({ userAnswers }) {
     
     (answer, index) => { 
       //polina
-      console.log("answer");
-      console.log(answer);
+      const correctIndex = QUESTIONS[index].correctAnswer; //always return index of correct answer
+      if(Array.isArray(correctIndex)) {
+        console.log("correctIndex it is an array");
+        console.log(correctIndex);
+        console.log("index" + index);
+      }
+      
+      //let ans;
+      console.log("index of answer:");
+      // console.log(answer);
       console.log(index);
-      console.log(QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]);
-      return answer === QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]}
+      //correctAns = QUESTIONS[index].answers[correctIndex].label ? QUESTIONS[index].answers[correctAnswer].label : QUESTIONS[index].answers[correctAnswer];
+        
+      //console.log(QUESTIONS[index].answers[correctIndex]);
+      if (Array.isArray(answer)) {
+        console.log("aswer this is an array!");
+      }
+
+
+      if(answer === null){
+
+      }
+      else if (typeof answer === "object" && answer !== null) {
+        console.log("answer this is an object!");
+        console.log(JSON.stringify(answer));
+        console.log("try to compere with");
+        console.log(QUESTIONS[index].answers[correctIndex]);
+        console.log(answer === QUESTIONS[index].answers[correctIndex]);
+
+      }
+      
+      return answer === QUESTIONS[index].answers[correctIndex];
+      
+    }
   );
 
-  console.log(correctAnswers);
+  // console.log(correctAnswers);
+  // console.log(correctAnswers);
 
   const skippedAnswersShare = Math.round(
     (skippedAnswers.length / userAnswers.length) * 100
@@ -46,10 +76,27 @@ export default function Summary({ userAnswers }) {
       <ol>
         {userAnswers.map((answer, index) => {
           let cssClass = 'user-answer';
+          const correctIndex = QUESTIONS[index].correctAnswer;
+          console.log(answer);
 
           if (answer === null) {
             cssClass += ' skipped';
-          } else if (answer === QUESTIONS[index].answers[QUESTIONS[index].correctAnswer]) {
+          } else if (typeof answer === "object") {
+            console.log(answer.label);
+            console.log(answer.code);
+            //cssClass += ' correct';
+
+          } else if (answer.label) {
+            console.log(answer.label);
+            //cssClass += ' correct';
+          } else if (Array.isArray(QUESTIONS[index].answers[correctIndex])) {
+            console.log("QUESTIONS[index].answers[correctIndex]");
+            if(QUESTIONS[index].answers[correctIndex]) {
+              
+            }
+            //cssClass += ' correct';
+            //here answer it is a problem
+          }  else if (answer === QUESTIONS[index].answers[correctIndex]) {
             cssClass += ' correct';
           } else {
             cssClass += ' wrong';
