@@ -206,27 +206,130 @@ export default [
       correctAnswer: 3,
     },
     {
-    id: 'q12',
-    text: 'You need to match a time value such as 12:00:32. Which of the following regular expressions would work for your code?',
-    answers: [
+      id: 'q12',
+      text: 'You need to match a time value such as 12:00:32. Which of the following regular expressions would work for your code?',
+      answers: [
         {
-        label: 'A',
-        code: `/[0-9]{2,}:[0-9]{2,}:[0-9]{2,}/`
+          label: 'A',
+          code: `/[0-9]{2,}:[0-9]{2,}:[0-9]{2,}/`
         },
         {
-        label: 'B',
-        code: `/\d\d:\d\d:\d\d/`
+          label: 'B',
+          code: `/\d\d:\d\d:\d\d/`
         },
         {
-        label: 'C',
-        code: `/[0-9]+:[0-9]+:[0-9]+/`
+          label: 'C',
+          code: `/[0-9]+:[0-9]+:[0-9]+/`
         },
         {
-        label: 'D',
-        code: `/ : : /`
+          label: 'D',
+          code: `/ : : /`
         }
-    ],
-    correctAnswer: 1
+      ],
+      correctAnswer: 1
+    },
+    {
+      id: 'q13',
+      text: 'What is the result in the console of running this code?',
+      code: `'use strict';
+      function logThis() {
+        this.desc = 'logger';
+        console.log(this);
+      }
+      new logThis();`,
+      answers: [
+        'undefined',
+        'window',
+        '{desc: "logger"}',
+        "function",
+      ],
+      correctAnswer: 2,
+    },
+    {
+      id: 'q14',
+      text: "How would you reference the text 'avenue' in the code shown?",
+      code: `'let roadTypes = ['street', 'road', 'avenue', 'circle'];`,
+      answers: [
+        'roadTypes.2',
+        'roadTypes[3]',
+        'roadTypes.3',
+        'roadTypes[2]',
+      ],
+      correctAnswer: 3,
+    },
+    {
+      id: 'q15',
+      text: 'What is the result of running this statement?',
+      code: `console.log(typeof 42);`,
+      answers: [
+        'float',
+        'value',
+        'number',
+        'integer',
+      ],
+      correctAnswer: 2,
+    },
+    {
+      id: 'q16',
+      text: 'Which property references the DOM object that dispatched an event?',
+      answers: [
+        'self',
+        'object',
+        'target',
+        'source',
+      ],
+      correctAnswer: 2,
+    },
+    {
+      id: 'q17',
+      text: "You're adding error handling to the code shown. Which code would you include within the if statement to specify an error message?",
+      code: `function addNumbers(x, y) {
+        if (isNaN(x) || isNaN(y)) {
+        }
+      }`,
+      answers: [
+        "exception('One or both parameters are not numbers')",
+        "catch('One or both parameters are not numbers')",
+        "error('One or both parameters are not numbers')",
+        "throw('One or both parameters are not numbers')",
+      ],
+      correctAnswer: 3,
+    },
+    {
+      id: 'q18',
+      text: 'Which method converts JSON data to a JavaScript object?',
+      answers: [
+        'JSON.fromString();',
+        'JSON.parse()',
+        'JSON.toObject()',
+        'JSON.stringify()',
+      ],
+      correctAnswer: 1,
+    },
+    {
+      id: 'q19',
+      text: 'When would you use a conditional statement?',
+      answers: [
+        'When you want to reuse a set of statements multiple times.',
+        'When you want your code to choose between multiple options.',
+        'When you want to group data together.',
+        'When you want to loop through a group of statement.',
+      ],
+      correctAnswer: 1,
+    },
+    {
+      id: 'q20',
+      text: 'What would be the result in the console of running this code?',
+      code: `for (var i = 0; i < 5; i++) {
+        console.log(i);
+      }`,
+      answers: [
+        '1 2 3 4 5',
+        '1 2 3 4',
+        '0 1 2 3 4',
+        '0 1 2 3 4 5',
+      ],
+      correctAnswer: 2,
     },
   ];
   
