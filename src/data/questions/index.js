@@ -4,11 +4,12 @@ import { OKTOPOST_QUESTIONS } from './oktopostQuestions.js';
 const normalizedJavascriptQuestions = javascriptQuestions.map((question) => ({
   ...question,
 
-  // Avoid collisions with questions from future sources.
   id: `javascript-${question.id}`,
 
   type: 'multiple-choice',
   topicId: 'javascript',
+
+  source: 'legacy-quiz',
 
   difficulty: question.difficulty || 'medium',
 

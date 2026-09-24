@@ -3,6 +3,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-oop-singleton',
     type: 'open',
     topicId: 'oop',
+    source: 'interview',
 
     text: 'Why is Singleton often considered a bad practice?',
 
@@ -27,6 +28,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-php-modern-versions',
     type: 'open',
     topicId: 'php',
+    source: 'interview',
 
     text: 'What are the important differences between older and modern PHP versions?',
 
@@ -47,6 +49,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-race-condition',
     type: 'open',
     topicId: 'concurrency',
+    source: 'interview',
 
     text: 'What is a race condition?',
 
@@ -67,6 +70,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-js-var-let',
     type: 'open',
     topicId: 'javascript',
+    source: 'interview',
 
     text: 'What is the difference between var and let?',
 
@@ -87,6 +91,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-js-task-queues',
     type: 'open',
     topicId: 'javascript',
+    source: 'interview',
 
     text: 'What is the difference between microtasks and macrotasks in JavaScript?',
 
@@ -107,6 +112,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-react-child-update-parent',
     type: 'open',
     topicId: 'react',
+    source: 'interview',
 
     text: 'A parent component owns some state. What is the recommended way for a child component to update it?',
 
@@ -127,6 +133,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-docker-image-container',
     type: 'open',
     topicId: 'docker',
+    source: 'interview',
 
     text: 'What is the difference between a Docker image and a Docker container?',
 
@@ -147,6 +154,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-rest-get-data',
     type: 'open',
     topicId: 'rest-api',
+    source: 'interview',
 
     text: 'Can data be passed with a GET request and where should it be placed?',
 
@@ -167,6 +175,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-mysql-having',
     type: 'open',
     topicId: 'mysql',
+    source: 'interview',
 
     text: 'What is HAVING used for in SQL?',
 
@@ -187,6 +196,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-mysql-index-selectivity',
     type: 'open',
     topicId: 'mysql',
+    source: 'interview',
 
     text: 'What is index selectivity and why does it matter?',
 
@@ -207,6 +217,7 @@ export const OKTOPOST_QUESTIONS = [
     id: 'oktopost-mysql-composite-index',
     type: 'open',
     topicId: 'mysql',
+    source: 'interview',
 
     text: 'How should column order be chosen in a composite MySQL index?',
 
